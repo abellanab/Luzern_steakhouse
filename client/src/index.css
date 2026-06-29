@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Alpine Heritage Typography */
+/* Warm Steakhouse Typography */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
@@ -46,40 +46,40 @@
 }
 
 :root {
-  /* Alpine Heritage Elegance Color Palette */
-  --primary: #1B4D3E; /* Deep Forest Green */
-  --primary-foreground: #F5F1E8; /* Warm Cream */
-  --sidebar-primary: #1B4D3E;
-  --sidebar-primary-foreground: #F5F1E8;
-  --chart-1: #D4AF37;
-  --chart-2: #8B3A3A;
-  --chart-3: #1B4D3E;
-  --chart-4: #2C2C2C;
-  --chart-5: #1B4D3E;
+  /* Warm Steakhouse Color Palette */
+  --primary: #2A1918; /* Dark Chocolate Brown */
+  --primary-foreground: #F9ECEC; /* Warm Cream */
+  --sidebar-primary: #2A1918;
+  --sidebar-primary-foreground: #F9ECEC;
+  --chart-1: #2A1918;
+  --chart-2: #553C39;
+  --chart-3: #8B5E4A;
+  --chart-4: #C8B0B1;
+  --chart-5: #9C8785;
   --radius: 0.65rem;
-  --background: #F5F1E8; /* Warm Cream */
-  --foreground: #2C2C2C; /* Charcoal */
+  --background: #F9ECEC; /* Warm Cream */
+  --foreground: #2A1918; /* Dark Chocolate Brown */
   --card: #FFFFFF;
-  --card-foreground: #2C2C2C;
+  --card-foreground: #2A1918;
   --popover: #FFFFFF;
-  --popover-foreground: #2C2C2C;
-  --secondary: #8B3A3A; /* Rich Burgundy */
-  --secondary-foreground: #F5F1E8;
-  --muted: #D4D0C8;
-  --muted-foreground: #6B6B6B;
-  --accent: #D4AF37; /* Brushed Gold */
-  --accent-foreground: #1B4D3E;
+  --popover-foreground: #2A1918;
+  --secondary: #553C39; /* Medium Brown */
+  --secondary-foreground: #F9ECEC;
+  --muted: #C8B0B1; /* Muted Rose/Taupe */
+  --muted-foreground: #553C39;
+  --accent: #8B5E4A; /* Warm Copper Brown */
+  --accent-foreground: #F9ECEC;
   --destructive: #DC2626;
-  --destructive-foreground: #F5F1E8;
-  --border: #E5E0D8;
+  --destructive-foreground: #F9ECEC;
+  --border: #E5D5D3; /* Light Warm Taupe */
   --input: #FFFFFF;
-  --ring: #1B4D3E;
-  --sidebar: #F5F1E8;
-  --sidebar-foreground: #2C2C2C;
-  --sidebar-accent: #D4AF37;
-  --sidebar-accent-foreground: #1B4D3E;
-  --sidebar-border: #E5E0D8;
-  --sidebar-ring: #1B4D3E;
+  --ring: #2A1918;
+  --sidebar: #F9ECEC;
+  --sidebar-foreground: #2A1918;
+  --sidebar-accent: #8B5E4A;
+  --sidebar-accent-foreground: #F9ECEC;
+  --sidebar-border: #E5D5D3;
+  --sidebar-ring: #2A1918;
 }
 
 .dark {
