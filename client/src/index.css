@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 /* Warm Steakhouse Typography */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -46,40 +46,40 @@
 }
 
 :root {
-  /* Warm Steakhouse Color Palette */
-  --primary: #2A1918; /* Dark Chocolate Brown */
-  --primary-foreground: #F9ECEC; /* Warm Cream */
-  --sidebar-primary: #2A1918;
-  --sidebar-primary-foreground: #F9ECEC;
-  --chart-1: #2A1918;
-  --chart-2: #553C39;
-  --chart-3: #8B5E4A;
-  --chart-4: #C8B0B1;
-  --chart-5: #9C8785;
+  /* Luzern Steakhouse Reference Palette */
+  --primary: #3E1F1B; /* Very Dark Brown */
+  --primary-foreground: #F5E6D3; /* Warm Cream */
+  --sidebar-primary: #3E1F1B;
+  --sidebar-primary-foreground: #F5E6D3;
+  --chart-1: #3E1F1B;
+  --chart-2: #9C5D3C;
+  --chart-3: #EAD5C5;
+  --chart-4: #D9C8B8;
+  --chart-5: #1A1A1A;
   --radius: 0.65rem;
-  --background: #F9ECEC; /* Warm Cream */
-  --foreground: #2A1918; /* Dark Chocolate Brown */
-  --card: #FFFFFF;
-  --card-foreground: #2A1918;
-  --popover: #FFFFFF;
-  --popover-foreground: #2A1918;
-  --secondary: #553C39; /* Medium Brown */
-  --secondary-foreground: #F9ECEC;
-  --muted: #C8B0B1; /* Muted Rose/Taupe */
-  --muted-foreground: #553C39;
-  --accent: #8B5E4A; /* Warm Copper Brown */
-  --accent-foreground: #F9ECEC;
+  --background: #F5E6D3; /* Warm Cream */
+  --foreground: #1A1A1A; /* Near Black */
+  --card: #FFF8F0; /* Light Cream */
+  --card-foreground: #1A1A1A;
+  --popover: #FFF8F0;
+  --popover-foreground: #1A1A1A;
+  --secondary: #9C5D3C; /* Warm Copper Brown */
+  --secondary-foreground: #F5E6D3;
+  --muted: #EAD5C5; /* Light Pinkish Cream */
+  --muted-foreground: #3E1F1B;
+  --accent: #9C5D3C; /* Warm Copper Brown */
+  --accent-foreground: #F5E6D3;
   --destructive: #DC2626;
-  --destructive-foreground: #F9ECEC;
-  --border: #E5D5D3; /* Light Warm Taupe */
+  --destructive-foreground: #F5E6D3;
+  --border: #D9C8B8;
   --input: #FFFFFF;
-  --ring: #2A1918;
-  --sidebar: #F9ECEC;
-  --sidebar-foreground: #2A1918;
-  --sidebar-accent: #8B5E4A;
-  --sidebar-accent-foreground: #F9ECEC;
-  --sidebar-border: #E5D5D3;
-  --sidebar-ring: #2A1918;
+  --ring: #3E1F1B;
+  --sidebar: #F5E6D3;
+  --sidebar-foreground: #3E1F1B;
+  --sidebar-accent: #9C5D3C;
+  --sidebar-accent-foreground: #F5E6D3;
+  --sidebar-border: #D9C8B8;
+  --sidebar-ring: #3E1F1B;
 }
 
 .dark {
@@ -123,11 +123,11 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
+    font-family: 'Rokkitt', serif;
+    font-weight: 700;
     letter-spacing: -0.5px;
   }
   h1 {
@@ -140,10 +140,17 @@
     @apply text-xl md:text-2xl;
   }
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Rokkitt', serif;
+  }
+  .font-subhead,
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .font-body {
+    font-family: 'Inter', sans-serif;
   }
   .font-accent {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Rokkitt', serif;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
