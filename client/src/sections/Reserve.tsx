@@ -68,7 +68,6 @@ export default function Reserve() {
                   </Label>
                   <Input
                     id="name"
-                    placeholder="John Doe"
                     value={reservationData.name}
                     onChange={(e) => handleReservationChange("name", e.target.value)}
                     className="border-border bg-input focus:border-secondary focus:ring-secondary text-sm"
@@ -81,7 +80,6 @@ export default function Reserve() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="john@example.com"
                     value={reservationData.email}
                     onChange={(e) => handleReservationChange("email", e.target.value)}
                     className="border-border bg-input focus:border-secondary focus:ring-secondary text-sm"
@@ -96,7 +94,7 @@ export default function Reserve() {
                   </Label>
                   <Input
                     id="phone"
-                    placeholder="+63 (0)32 231 1148"
+                    placeholder="+63"
                     value={reservationData.phone}
                     onChange={(e) => handleReservationChange("phone", e.target.value)}
                     className="border-border bg-input focus:border-secondary focus:ring-secondary text-sm"
