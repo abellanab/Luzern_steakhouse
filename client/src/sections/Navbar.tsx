@@ -56,7 +56,7 @@ export default function Navbar() {
 
       {isOpen && (
         <nav className="md:hidden absolute top-full left-0 w-full bg-primary border-t border-primary-foreground/10 shadow-lg">
-          <div className="container py-4 flex flex-col gap-4">
+          <div className="container pt-12 pb-4 flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
                 key={link.label}

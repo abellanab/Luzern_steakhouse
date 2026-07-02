@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Reveal } from "@/components/Reveal";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -47,7 +48,7 @@ export default function Reserve() {
     <section id="reserve" className="py-16 md:py-32 bg-background">
       <div className="container">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-8 md:mb-12 animate-in fade-in duration-700">
+          <Reveal from="up" className="text-center mb-8 md:mb-12">
             <p className="font-serif text-secondary font-semibold text-xs md:text-sm tracking-[0.2em] uppercase mb-2">
               Book Your Experience
             </p>
@@ -57,9 +58,10 @@ export default function Reserve() {
             <p className="font-body text-base md:text-lg text-foreground/70">
               Secure your spot at Luzern Steakhouse and enjoy an unforgettable dining experience
             </p>
-          </div>
+          </Reveal>
 
-          <Card className="p-6 md:p-12 bg-card border-border shadow-lg animate-in fade-in slide-in-from-bottom duration-700 delay-200">
+          <Reveal from="up" delay={0.15} amount={0.15}>
+          <Card className="p-6 md:p-12 bg-card border-border shadow-lg">
             <form onSubmit={handleReservationSubmit} className="space-y-5 md:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div className="space-y-2">
@@ -105,7 +107,7 @@ export default function Reserve() {
                     Number of Guests *
                   </Label>
                   <Select value={reservationData.guests} onValueChange={(value) => handleReservationChange("guests", value)}>
-                    <SelectTrigger className="border-border bg-input focus:border-secondary focus:ring-secondary text-sm">
+                    <SelectTrigger className="w-full border-border bg-input focus:border-secondary focus:ring-secondary text-sm">
                       <SelectValue placeholder="Select number of guests" />
                     </SelectTrigger>
                     <SelectContent>
@@ -168,6 +170,7 @@ export default function Reserve() {
               </Button>
             </form>
           </Card>
+          </Reveal>
         </div>
       </div>
     </section>
