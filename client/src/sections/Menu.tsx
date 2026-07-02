@@ -35,9 +35,9 @@ export default function Menu() {
   return (
     <section id="menu" className="overflow-hidden bg-background py-16 text-primary md:py-24 lg:py-28">
       <div className="container">
-        <h2 className="mb-9 text-center font-display text-[clamp(3.75rem,8vw,6.5rem)] font-black uppercase leading-none tracking-normal text-primary md:mb-12 lg:mb-14">
-          Menu
-        </h2>
+        <h2 className="mb-9 text-center font-display text-4xl font-black uppercase leading-none text-primary md:mb-12 md:text-6xl lg:mb-14">
+  Menu
+</h2>
 
         <div className="relative left-1/2 grid w-full max-w-[23rem] -translate-x-1/2 grid-cols-1 gap-6 sm:max-w-[47rem] sm:grid-cols-2 md:max-w-[70rem] md:grid-cols-6 md:gap-7 lg:w-[min(91vw,110rem)] lg:max-w-none lg:grid-cols-5 lg:gap-[clamp(1.75rem,2.75vw,3.5rem)]">
           {menuCategories.map((category, index) => (
