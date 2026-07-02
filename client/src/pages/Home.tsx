@@ -18,8 +18,8 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <About />
       <Menu />
+      <About />
       <Reserve />
       <Contact />
     </div>

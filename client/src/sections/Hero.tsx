@@ -1,68 +1,126 @@
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
-const carouselDots = Array.from({ length: 7 }, (_, index) => index);
+const carouselDots = Array.from({ length: 2 }, (_, index) => index);
+
+const slides = [
+  {
+    image: "/AIexterior.jpg",
+    alt: "Luzern Steakhouse exterior",
+    imageClassName: "object-cover object-center",
+    overlay: "default",
+    eyebrow: "Welcome to",
+    title: (
+      <>
+        Luzern
+        <br />
+        Steakhouse
+      </>
+    ),
+    body: "Experience the finest USDA Prime steaks and European hospitality in Cebu. Luzern Steakhouse brings Alpine heritage and Swiss precision to every plate.",
+    bodySecondary: null,
+    sectionClassName: "min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)]",
+    containerClassName: "items-center justify-start pt-24 pb-20 md:py-24 lg:py-28",
+    contentClassName: "max-w-2xl text-left animate-in fade-in slide-in-from-left duration-700",
+    eyebrowClassName: "mb-4 font-serif text-[clamp(1.7rem,8vw,2.65rem)] uppercase leading-none text-primary-foreground/95 md:text-4xl lg:text-5xl",
+    titleClassName: "mb-6 font-body text-[clamp(2.6rem,13vw,4.25rem)] font-black uppercase leading-[0.98] tracking-[0.06em] text-primary-foreground md:text-6xl lg:text-7xl",
+    bodyClassName: "max-w-xl font-body text-[clamp(0.9rem,3.5vw,1.05rem)] leading-tight text-primary-foreground/90 md:text-lg",
+  },
+  {
+    image: "/2ndBG.png",
+    alt: "Luzern Steakhouse anniversary steak platter",
+    imageClassName:
+      "object-cover object-[28%_center] sm:object-[32%_center] md:object-cover md:object-center xl:object-fill",
+    overlay: "anniversary",
+    eyebrow: "Luzern Turns 10",
+    title: (
+      <>
+        Celebrating
+        <br />
+        10 Years
+      </>
+    ),
+    body: "A decade of USDA Prime steaks, warm Cebu hospitality, and the Alpine-inspired flavors that made every gathering memorable.",
+    bodySecondary: "Join us as Luzern Steakhouse celebrates ten years of expertly grilled cuts, thoughtful service, and meals worth returning to.",
+    sectionClassName: "min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)]",
+    containerClassName: "items-end justify-center pt-[48vh] pb-20 sm:pt-[44vh] md:items-center md:justify-end md:pt-24 md:pb-24 lg:py-20",
+    contentClassName:
+      "mx-auto w-full max-w-[22rem] text-right animate-in fade-in slide-in-from-right duration-700 sm:max-w-[27rem] md:mx-0 md:mr-6 md:max-w-[30rem] lg:mr-16 lg:max-w-[34rem] xl:mr-24",
+   eyebrowClassName:
+      "text-right font-serif text-[clamp(1.7rem,8vw,2.65rem)] uppercase leading-none text-primary-foreground/95 md:text-4xl lg:text-5xl",
+    titleClassName:
+      "mb-4 mt-3 text-right font-body text-[clamp(2.6rem,13vw,4.25rem)] font-black uppercase leading-[0.98] tracking-[0.06em] text-white md:mb-6 md:mt-5 md:text-6xl lg:text-7xl",
+    bodyClassName:
+      "ml-auto max-w-[29rem] text-right font-body text-[clamp(0.9rem,3.5vw,1.05rem)] leading-tight text-primary-foreground/90 md:text-lg",
+  },
+];
 
 export default function Hero() {
+  const [activePage, setActivePage] = useState(0);
+  const slide = activePage === 1 ? slides[1] : slides[0];
+
+  const goToPrevious = () => {
+    setActivePage((current) => (current === 0 ? carouselDots.length - 1 : current - 1));
+  };
+
+  const goToNext = () => {
+    setActivePage((current) => (current === carouselDots.length - 1 ? 0 : current + 1));
+  };
+
   return (
-    <section id="home" className="relative min-h-screen md:min-h-[calc(100vh-5rem)]">
+    <section id="home" className={cn("relative overflow-hidden bg-primary", slide.sectionClassName)}>
       {/* Background image */}
       <img
-        src="/AIexterior.jpg"
-        alt="Luzern Steakhouse exterior"
-        className="absolute inset-0 h-full w-full object-cover"
+        src={slide.image}
+        alt={slide.alt}
+        sizes="100vw"
+        className={cn("absolute inset-0 h-full w-full", slide.imageClassName)}
       />
 
-      {/* Warm overlay */}
-      <div className="absolute inset-0 bg-primary/60" />
+      {slide.overlay === "anniversary" ? (
+        <>
+          <div className="absolute inset-0 bg-primary/10 md:bg-primary/20" />
+          <div className="absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-[#2b0f0c]/95 via-[#3e1f1b]/65 to-transparent md:hidden" />
+          <div className="absolute inset-y-0 right-0 hidden w-[66%] bg-gradient-to-l from-[#2b0f0c]/95 via-[#3e1f1b]/70 to-transparent md:block lg:w-[62%]" />
+          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#2b0f0c]/70 to-transparent" />
+        </>
+      ) : (
+        <div className="absolute inset-0 bg-primary/60" />
+      )}
 
       {/* Hero content */}
-      <div className="relative z-10 container flex flex-col justify-center min-h-screen md:min-h-[calc(100vh-5rem)] py-24 md:py-32">
-        <div className="max-w-2xl animate-in fade-in slide-in-from-left duration-700">
-          <p className="font-serif uppercase tracking-[0.2em] text-sm md:text-base text-primary-foreground/90 mb-4">
-            Welcome to
-          </p>
-          <h1 className="font-display font-bold uppercase text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-[0.95] mb-6">
-            Luzern
-            <br />
-            Steakhouse
-          </h1>
-          <p className="font-body text-base md:text-lg text-primary-foreground/90 max-w-xl mb-8 leading-relaxed">
-            Experience the finest USDA Prime steaks and European hospitality in Cebu. Luzern Steakhouse brings Alpine heritage and Swiss precision to every plate.
-          </p>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 font-accent uppercase tracking-wider px-8 py-6"
-          >
-            Reserve Now
-          </Button>
-
-          <div className="flex items-center gap-2 text-primary-foreground/90 mt-8">
-            <MapPin className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0" />
-            <span className="font-body text-xs md:text-sm">
-              St. Moritz Road (Gorordo Avenue, Archbishop Road), Cebu City, Philippines, 6000
-            </span>
-          </div>
+      <div
+        className={cn(
+          "relative z-10 container flex min-h-[inherit]",
+          slide.containerClassName
+        )}
+      >
+        <div key={activePage} className={slide.contentClassName}>
+          <p className={slide.eyebrowClassName}>{slide.eyebrow}</p>
+          <h1 className={slide.titleClassName}>{slide.title}</h1>
+          <p className={slide.bodyClassName}>{slide.body}</p>
+          {slide.bodySecondary && <p className={cn(slide.bodyClassName, "mt-8")}>{slide.bodySecondary}</p>}
         </div>
       </div>
 
       {/* Carousel side arrows */}
-      <div className="absolute inset-y-0 left-0 right-0 z-10 hidden md:flex items-center justify-between px-4 lg:px-8 pointer-events-none">
+      <div className="absolute inset-y-0 left-0 right-0 z-10 flex items-center justify-between px-3 pointer-events-none sm:px-4 lg:px-8">
         <button
           type="button"
           aria-label="Previous slide"
-          className="pointer-events-auto h-10 w-10 lg:h-12 lg:w-12 rounded-full border border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+          onClick={goToPrevious}
+          className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/90 text-primary transition-colors hover:bg-primary-foreground md:h-10 md:w-10 lg:h-12 lg:w-12"
         >
-          <ChevronLeft className="h-5 w-5 lg:h-6 lg:w-6" />
+          <ChevronLeft className="h-5 w-5 lg:h-6 lg:w-6" aria-hidden="true" />
         </button>
         <button
           type="button"
           aria-label="Next slide"
-          className="pointer-events-auto h-10 w-10 lg:h-12 lg:w-12 rounded-full border border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+          onClick={goToNext}
+          className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/90 text-primary transition-colors hover:bg-primary-foreground md:h-10 md:w-10 lg:h-12 lg:w-12"
         >
-          <ChevronRight className="h-5 w-5 lg:h-6 lg:w-6" />
+          <ChevronRight className="h-5 w-5 lg:h-6 lg:w-6" aria-hidden="true" />
         </button>
       </div>
 
@@ -70,13 +128,16 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 z-10 py-6 md:py-8">
         <div className="flex items-center justify-center gap-2">
           {carouselDots.map((index) => (
-            <span
+            <button
               key={index}
+              type="button"
+              aria-label={`Go to slide ${index + 1}`}
+              aria-current={activePage === index}
+              onClick={() => setActivePage(index)}
               className={cn(
                 "h-2 w-2 rounded-full transition-colors",
-                index === 0 ? "bg-primary-foreground" : "bg-primary-foreground/40"
+                activePage === index ? "bg-primary-foreground" : "bg-primary-foreground/40"
               )}
-              aria-hidden="true"
             />
           ))}
         </div>
